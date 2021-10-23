@@ -1,0 +1,43 @@
+{
+    "name": "paulomarcio/buscador-cursos-alura",
+    "description": "Projeto que busca os cursos no site da Alura",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Paulo Marcio",
+            "email": "paulom.matias@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/css-selector": "^5.3",
+        "symfony/dom-crawler": "^5.3",
+        "guzzlehttp/guzzle": "^7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Alura\\BuscadorDeCursos\\": "src/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "squizlabs/php_codesniffer": "^3.6",
+        "phan/phan": "^5.2"
+    },
+    "scripts": {
+        "test": "phpunit tests/TestBuscadorDeCursos.php",
+        "cs": "phpcs --standard=PSR12 src/",
+        "phan": "phan --allow-polyfill-parser",
+        "check": [
+            "@phan",
+            "@cs",
+            "@test"
+        ],
+        "post-update-cmd": [
+            "@test"
+        ]
+    },
+    "scripts-descriptions": {
+        "check": "Roda as verificações do código. PHAN, PHPCS e PHPUNIT"
+    }
+}
